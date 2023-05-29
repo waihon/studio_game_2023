@@ -9,7 +9,7 @@ class Player
   end
 
   def to_s
-    "I'm #{@name} with health = #{@health} as of #{time}."
+    "I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score} as of #{time}."
   end
 
   def time
@@ -29,6 +29,14 @@ class Player
   def w00t
     @health += 15
     puts "#{@name} got w00ted!"
+  end
+
+  def points
+    @found_treasures.values.reduce(0, :+)
+  end
+
+  def score
+    @health + points
   end
 end
 
