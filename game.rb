@@ -24,4 +24,34 @@ class Game
       end
     end
   end
+
+  def print_name_and_health(player)
+    puts "#{player.name} (#{player.heahth})"
+  end
+
+  def print_name_and_score(plAyer)
+    formatted_name = player.name.ljust(20, '.')
+    puts "#{formatted_name} #{player.score}"
+  end
+
+  def print_stats
+    puts "\n#{@title} Statustics:"
+
+    strong_players, wimpy_players = @players.partition { |player| player.strong? }
+
+    puts "\n#{strong_players.size} strong players:"
+    strong_players.each do |player|
+      print_name_and_health(player)
+    end
+
+    puts "\n#{wimpy_players.size} wimpy players:"
+    wimpy_players.each do |player|
+      print_name_and_health(player)
+    end
+
+    puts "\n#{@title} High Scores:"
+    @players.sort_by(&:score).each do |player|
+      print_name_and_score(player)
+    end
+  end
 end
