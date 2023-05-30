@@ -23,7 +23,7 @@ class Player
 
   def blam
     @health -= 10
-    print "#{@name} got blammed!"
+    puts "#{@name} got blammed!"
   end
 
   def w00t

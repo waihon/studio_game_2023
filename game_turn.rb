@@ -1,7 +1,7 @@
 require_relative 'player'
 require_relative 'dice'
 
-module GameTun
+module GameTurn
   def self.take_turn(player)
     dice = Dice.new
     case  dice.roll
