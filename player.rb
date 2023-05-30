@@ -14,7 +14,7 @@ class Player
 
   def time
     current_time = Time.new
-    current_time.strftime("%I:%M%S %p")
+    current_time.strftime("%I:%M:%S %p")
   end
 
   def strong?
@@ -37,6 +37,12 @@ class Player
 
   def score
     @health + points
+  end
+
+  def found_treasure(treasure)
+    @found_treasures[treasure.name] += treasure.points
+    puts "#{@name} found a #{treasure.name} worth #{treasure.points} points."
+    puts "#{@name}'s treasures: #{@found_treasures}"
   end
 end
 
