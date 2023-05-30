@@ -55,3 +55,17 @@ class Game
     end
   end
 end
+
+if __FILE__ == $PROGRAM_NAME
+  player1 = Player.new("Moe")
+  player2 = Player.new("Larry", 60)
+  player3 = Player.new("Curly", 125)
+
+  knuckleheads = Game.new("Knuckleheads").tap do |game|
+    game.add_player(player1)
+    game.add_player(player2)
+    game.add_player(player3)
+  end
+  knuckleheads.play(3)
+  knuckleheads.print_stats
+end
