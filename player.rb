@@ -2,6 +2,13 @@ class Player
   attr_accessor :name
   attr_reader :health
 
+  # Class-level methods
+  def self.from_csv(string)
+    name, health = string.split(",")
+    # Integer() method will raise an exception if health is not a valid number
+    new(name, Integer(health))
+  end
+
   def initialize(name, health=100)
     @name = name.capitalize
     @health = health

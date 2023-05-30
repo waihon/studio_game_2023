@@ -10,8 +10,14 @@ class Game
     @players = []
   end
 
-  def  add_player(a_player)
+  def add_player(a_player)
     @players.push(a_player)
+  end
+
+  def load_players(from_file)
+    File.readlines(from_file).each do |line|
+      add_player(Player.from_csv(line))
+    end
   end
 
   def play(rounds=1)
