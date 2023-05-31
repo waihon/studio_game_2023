@@ -1,6 +1,10 @@
+require_relative 'playable'
+
 class Player
-  attr_accessor :name
-  attr_reader :health
+  include Playable
+
+  attr_reader :name
+  attr_accessor :health
 
   # Class-level methods
   def self.from_csv(string)
@@ -22,20 +26,6 @@ class Player
   def time
     current_time = Time.new
     current_time.strftime("%I:%M:%S %p")
-  end
-
-  def strong?
-    @health > 100
-  end
-
-  def blam
-    @health -= 10
-    puts "#{@name} got blammed!"
-  end
-
-  def w00t
-    @health += 15
-    puts "#{@name} got w00ted!"
   end
 
   def points
